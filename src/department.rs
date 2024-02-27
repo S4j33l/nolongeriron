@@ -16,8 +16,8 @@ impl Department {
     pub fn show_department_capacity(&self) {
         println!("The capacity of this department is {}", self.capacity);
     }
-    pub fn assign_doctor_to_wing(&mut self, doctor: Doctor) {
-        self.doctors_in_department.push(doctor);
+    pub fn assign_doctor_to_department(&mut self, doctor: &Doctor) {
+        self.doctors_in_department.push(doctor.clone());
     }
     pub fn show_doctors_in_department(&self) {
         for doctor in self.doctors_in_department.iter() {
