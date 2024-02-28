@@ -17,7 +17,7 @@ impl Doctor {
             patients_under_care: Vec::new(),
         }
     }
-    pub fn assign_doctor_to_patient(&mut self, patient: &mut Patient) {
+    pub fn assign_doctor_to_patient(&mut self, patient: Patient) {
         self.patients_under_care.push(patient.clone());
     }
     pub fn show_doctor_information(&self) {
@@ -34,14 +34,14 @@ impl Doctor {
             println!("{}", patient.name);
         }
     }
-
-    pub fn search_for_patient_under_care(&self, name: String) {
+    pub fn search_for_patient_under_care(&self, name: String) -> Option<Patient> {
         for patient in self.patients_under_care.iter() {
             if patient.name.eq(&name) {
                 println!("Patient found!");
-                return;
+                Some(patient.clone());
             }
         }
         println!("Patient not found!");
+        None
     }
 }
