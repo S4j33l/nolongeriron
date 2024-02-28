@@ -1,53 +1,25 @@
 mod department;
 mod doctor;
 mod patient;
+mod hms;
 use department::Department;
 use doctor::Doctor;
 use patient::Patient;
+use std::io;
 fn main() {
-    let p1 = Patient::new("Sajeel".to_string(), 20, "Fever".to_string(), 83.7, 172.0);
-    let p2 = Patient::new("Rajeel".to_string(), 20, "Fever".to_string(), 83.7, 172.0);
-    let p3 = Patient::new("Bajeel".to_string(), 20, "Fever".to_string(), 83.7, 172.0);
-    let mut d1 = Doctor::new(
-        "Rabeel".to_string(),
-        25,
-        "Oncology".to_string(),
-        "3 years".to_string(),
-    );
-    let d2 = Doctor::new(
-        "Rabeel".to_string(),
-        25,
-        "Oncology".to_string(),
-        "3 years".to_string(),
-    );
-    let d3 = Doctor::new(
-        "Rabeel".to_string(),
-        25,
-        "Oncology".to_string(),
-        "3 years".to_string(),
-    );
-    let d4 = Doctor::new(
-        "Sabeel".to_string(),
-        25,
-        "Oncology".to_string(),
-        "3 years".to_string(),
-    );
-    let mut dep = Department::new("Oncology", 200);
-    dep.assign_doctor_to_department(&d1);
-    dep.assign_doctor_to_department(&d2);
-    dep.assign_doctor_to_department(&d4);
-    dep.show_doctors_in_department();
-    d1.assign_doctor_to_patient(p1);
-    d1.assign_doctor_to_patient(p2);
-    d1.show_patients_under_care();
-    let pat = d1
-        .search_for_patient_under_care("Sajeel".to_string())
-        .unwrap_or(Patient::new(
-            "Patient not found".to_string(),
-            0,
-            "".to_string(),
-            0.0,
-            0.0,
-        ));
-    println!("{}", pat.name);
+    println!("Welcome to HMS!");
+    println!("You will be acting as a creator of a Hospital.");
+    println!("You may create different departments and assign doctors to said departments");
+    println!("Furthermore, you may also assign patients to the doctors in the departments.");
+    println!("Press Y/y if you want to continue and N/n if you want to exit");
+    let mut hms_starting_choice: String = String::new();
+    io::stdin()
+        .read_line(&mut hms_starting_choice)
+        .unwrap();
+    hms_starting_choice = hms_starting_choice.trim().to_string();
+    if hms_starting_choice.eq("Y") || hms_starting_choice.eq("y") {
+        println!("Vamos");
+    } else if hms_starting_choice.eq("N") || hms_starting_choice.eq("n") {
+        panic!();
+    }
 }

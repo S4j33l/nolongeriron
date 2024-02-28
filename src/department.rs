@@ -45,7 +45,7 @@ impl Department {
             doctors_in_department: Vec::new(),
         }
     }
-    pub fn show_department_capacity(&self) {
+    pub fn show_department_information(&self) {
         println!("The capacity of this department is {}", self.capacity);
     }
     pub fn assign_doctor_to_department(&mut self, doctor: &Doctor) {

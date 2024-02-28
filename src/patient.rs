@@ -5,7 +5,6 @@ pub struct Patient {
     pub diagnosis: String,
     pub weight: f32,
     pub height: f32,
-    pub is_admitted: bool,
 }
 impl Patient {
     pub fn new(name: String, age: i32, diagnosis: String, weight: f32, height: f32) -> Patient {
@@ -15,7 +14,6 @@ impl Patient {
             diagnosis,
             weight,
             height,
-            is_admitted: false,
         }
     }
     pub fn show_patient_information(&self) {

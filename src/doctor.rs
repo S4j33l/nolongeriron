@@ -17,7 +17,7 @@ impl Doctor {
             patients_under_care: Vec::new(),
         }
     }
-    pub fn assign_doctor_to_patient(&mut self, patient: Patient) {
+    pub fn assign_doctor_to_patient(&mut self, patient: &Patient) {
         self.patients_under_care.push(patient.clone());
     }
     pub fn show_doctor_information(&self) {
